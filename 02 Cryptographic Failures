@@ -1,5 +1,5 @@
 ## 2. Cryptographic Failures
-   Weak or incorrect use of cryptography leads to exposure  
+   Overview: Weak or incorrect use of cryptography leads to exposure  
    of sensitive data (in transit or at rest).
 
    Impact:
