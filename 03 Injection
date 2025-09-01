@@ -1,6 +1,6 @@
-3. Injection
+### 3. Injection
 
-Overview: occurs when untrusted data is sent to an interpreter as part of a command or query, allowing attackers to execute unintended commands or access data.
+Occurs when untrusted data is sent to an interpreter as part of a command or query, allowing attackers to execute unintended commands or access data.
 
 Impact:
 Data theft, corruption, or deletion.
