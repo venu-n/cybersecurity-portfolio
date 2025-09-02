@@ -21,17 +21,17 @@ Attack Vectors & Remediation
 
    c. LDAP Injection
         Vector: Tampering with LDAP queries (*)(|(uid=*))).
-        Remediation: Use parameterized LDAP queries; input 
+        Remediation: Use parameterised LDAP queries; input 
         validation.
 
    d. NoSQL Injection
         Vector: Modifying NoSQL queries ({"$ne": null}).
         Remediation: Use safe query building methods, 
-        sanitize inputs.
+        sanitise inputs.
 
    e. XPATH / XML Injection
         Vector: Altering XML/XPath queries (' or '1'='1).
-        Remediation: Use parameterized XPath, sanitize XML 
+        Remediation: Use parameterised XPath, sanitise XML 
         inputs.
 
 Tools / Testing Techniques:
@@ -39,5 +39,4 @@ Tools / Testing Techniques:
     Burp Suite → Manual payload testing.
     NoSQLMap → NoSQL injection.
     WFuzz / Intruder → Payload fuzzing.
-
 
