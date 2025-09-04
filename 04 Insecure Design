@@ -1,0 +1,30 @@
+### 4. Insecure Design
+       Overview: Weaknesses in application design that create exploitable security gaps
+       Impact:
+         Security flaws are inherited into the system before coding
+         Leads to logic bypasses, business rule abuse, privilege misuse
+         Harder to fix than coding bugs, this may require redesign
+
+       Attack Vectors & Remediation
+         1. Business Logic Abuse
+              Vector: Abusing workflows. e.g., skipping payment step via modified request
+              Remediation: Define and enforce secure workflow rules, validate state transitions server-side
+         2. Excessive Trust in Client-side Controls
+              Vector: Relying on JavaScript checks or hidden fields to enforce rules
+              Remediation: Always enforce security checks on server-side
+         3. Insecure Default Workflows
+              Vector: Features enabled by default such as passwordless guest checkout
+              Remediation: Apply “secure by default” principle
+         4. Missing Threat Modeling
+              Vector: No consideration of attacker behaviour during design
+              Remediation: Perform regular threat modeling during design phase (STRIDE, DREAD, PASTA - LEARN/ADD more info on these)
+         5. Insufficient Security Requirements
+              Vector: App design doesn’t consider compliance (PCI-DSS, GDPR)
+              Remediation: Define explicit security requirements in SDLC
+
+       Tools / Testing Techniques:
+         1. No direct scanner --> rely on manual testing + threat modeling
+         2. Burp Suite --> Tamper with workflow requests
+         3. OWASP Threat Dragon --> For threat modeling  (LEARN/ADD more info on this)
+         4. Abuse case testing --> QA/security collaboration
+
