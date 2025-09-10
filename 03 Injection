@@ -1,42 +1,30 @@
 ### 3. Injection
+         Overview: Occurs when untrusted data is sent to an interpreter as part of a command or query, allowing attackers to execute unintended commands or access data
+         Impact:
+           Data theft, corruption, or deletion
+           Remote code execution (RCE)
+           Full compromise of application and database
 
-Overview: Occurs when untrusted data is sent to an interpreter as part of a command or query, allowing attackers to execute unintended commands or access data.
-
-Impact:
-Data theft, corruption, or deletion.
-Remote code execution (RCE).
-Full compromise of application and database.
-
-Attack Vectors & Remediation
-   a. SQL Injection (SQLi)
-        Vector: Manipulating SQL queries via input fields (' 
-        OR 1=1--).
-        Remediation: Use parameterized queries (prepared 
-        statements), ORM frameworks, least DB privileges.
-
-   b. Command Injection
-        Vector: Injecting OS commands (; rm -rf /).
-        Remediation: Avoid shell calls; use safe APIs; 
-        validate input with allowlists.
-
-   c. LDAP Injection
-        Vector: Tampering with LDAP queries (*)(|(uid=*))).
-        Remediation: Use parameterised LDAP queries; input 
-        validation.
-
-   d. NoSQL Injection
-        Vector: Modifying NoSQL queries ({"$ne": null}).
-        Remediation: Use safe query building methods, 
-        sanitise inputs.
-
-   e. XPATH / XML Injection
-        Vector: Altering XML/XPath queries (' or '1'='1).
-        Remediation: Use parameterised XPath, sanitise XML 
-        inputs.
+         Attack Vectors & Remediation
+            a. SQL Injection (SQLi)
+                 Vector: Manipulating SQL queries via input fields (' OR 1=1--)
+                 Remediation: Use parameterized queries (prepared statements), ORM frameworks, least DB privileges
+            b. Command Injection
+                 Vector: Injecting OS commands (; rm -rf /)
+                 Remediation: Avoid shell calls; use safe APIs; validate input with allowlists
+            c. LDAP Injection
+                 Vector: Tampering with LDAP queries (*)(|(uid=*)))
+                 Remediation: Use parameterised LDAP queries; input validation
+            d. NoSQL Injection
+                 Vector: Modifying NoSQL queries ({"$ne": null})
+                 Remediation: Use safe query building methods, sanitise inputs
+            e. XPATH / XML Injection
+                 Vector: Altering XML/XPath queries (' or '1'='1)
+                 Remediation: Use parameterised XPath, sanitise XML inputs
 
 Tools / Testing Techniques:
-    SQLMap → Automated SQLi detection & exploitation.
-    Burp Suite → Manual payload testing.
-    NoSQLMap → NoSQL injection.
-    WFuzz / Intruder → Payload fuzzing.
+    SQLMap -> Automated SQLi detection & exploitation
+    Burp Suite -> Manual payload testing
+    NoSQLMap -> NoSQL injection
+    WFuzz / Intruder -> Payload fuzzing
 
