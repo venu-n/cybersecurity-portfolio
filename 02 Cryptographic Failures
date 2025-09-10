@@ -8,21 +8,21 @@
      Enables credential theft, replay attacks, and data breaches
 
    Attack Vectors & Remediation
-     1. Plaintext Transmission (HTTP instead of HTTPS)
+     a. Plaintext Transmission (HTTP instead of HTTPS)
           Vector: Data sent without encryption --> intercepted via sniffing (MITM)
           Remediation: Enforce TLS 1.2+ everywhere; HSTS; disable HTTP
-     2. Weak or Deprecated Algorithms
+     b. Weak or Deprecated Algorithms
           Vector: Use of MD5, SHA1, DES, RC4 → easily cracked with modern hardware
           Remediation: Use strong algorithms (AES-256, SHA-256, RSA-2048+)
-     3. Hardcoded or Exposed Keys
+     c. Hardcoded or Exposed Keys
           Vector: Keys/secrets left in code, repos, config files
           Remediation: Store keys securely (vaults, HSMs); rotate keys regularly
-    4. Improper Password Storage
+     d. Improper Password Storage
           Vector: Storing passwords in plaintext or weak hashes
           Remediation: Hash with strong adaptive functions (bcrypt, scrypt, Argon2)
-    5. Insecure Protocols
+     e. Insecure Protocols
          Vector: Use of FTP, Telnet, SMTP without TLS
          Remediation: Replace with SFTP, SSH, SMTPS
-    6. Lack of Encryption at Rest
+     f. Lack of Encryption at Rest
          Vector: Databases/disks store sensitive data without encryption
          Remediation: Encrypt data at rest with AES-256; manage keys securely
