@@ -24,5 +24,9 @@
               Vector: Publicly accessible AWS S3 buckets, Azure blobs
               Remediation: Enforce private access; use IAM roles and least privilege
 
+Tools / Testing Techniques:
+      Nmap --> Detect open ports/services
+      Burp Suite / ZAP --> Check headers, verbose errors
+
 
 
