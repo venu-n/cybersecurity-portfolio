@@ -1,0 +1,28 @@
+## 5 Security Misconfiguration
+      Overview: When systems, frameworks, or applications are deployed with insecure default settings, unnecessary features, or poorly managed configs
+      Impact:  
+        Attackers exploit weak configs to gain unauthorized access
+        Often leads to data exposure, privilege escalation, or full system compromise
+        Very common in cloud, containers, and web apps
+      Attack Vectors & Remediation:
+         a. Default Credentials / Unchanged Passwords
+            Vector: Using vendor defaults (e.g., admin/admin)
+            Remediation: Enforce strong password policies; change defaults immediately
+         b.	Verbose Error Messages
+            Vector: Stack traces or system info leaked in error responses
+            Remediation: Show generic errors to users; log detailed errors server-side
+         c.	Unnecessary Services/Features Enabled
+            Vector: Running debug endpoints, directory listings, unused ports
+            Remediation: Disable/remove unused services; restrict features to production needs
+         d.	Outdated/Unpatched Systems
+            Vector: Old libraries, frameworks, unpatched OS
+            Remediation: Regular patch management, dependency scanning
+         e. Missing Security Headers
+            Vector: No CSP, HSTS, X-Frame-Options --> XSS, clickjacking possible
+            Remediation: Apply proper security headers site-wide
+         f. Open Cloud Storage Buckets
+            Vector: Publicly accessible AWS S3 buckets, Azure blobs
+            Remediation: Enforce private access; use IAM roles and least privilege
+
+
+
