@@ -1,0 +1,36 @@
+### 6. Vulnerable & Outdated Components
+    Overview:  Using outdated libraries, frameworks or software components with known vulnerabilities
+    Impact: 
+      Known exploits make attacks easier
+      Can lead to RCE, data breaches, or full app compromise
+      Breaks compliance (PCI-DSS, HIPAA) if patches aren’t applied
+
+    Attack Vectors & Remediation:
+      a. Unsupported software
+           Vector: Using end-of-life systems (eg. Windows XP, PHP 5.x)
+           Remediation: Migrate to supported versions; deprecate legacy apps
+      b. Vulnerable Open Source Packages
+           Vector: Running old versions of Struts, Spring, Log4j, etc. (as examples)
+           Remediation: Apply timely security patches and track dependencies
+      c. Vulnerable Open Source Packages
+           Vector: Attackers exploit known CVEs (e.g., Log4Shell in Log4j)
+           Remediation: Use dependency scanners (OWASP Dependency-Check, Snyk, npm audit)
+      d. Unmaintained APIs / Services
+           Vector: Relying on outdated APIs that have known flaws
+           Remediation: Regularly review and retire deprecated APIs
+      e. Unverified Third-party Components
+           Vector: Malicious/compromised packages from registries (typosquatting)
+           Remediation: Verify package integrity and use signed packages
+
+Tools & Testing Techniques:
+  OWASP Dependency-Check --> CVE mapping for components
+  Snyk / npm audit / pip-audit --> Scan dependencies
+  Nessus / OpenVAS --> Detect outdated systems
+  Retire.js --> JavaScript library vulnerabilities
+
+
+
+
+      
+
+
