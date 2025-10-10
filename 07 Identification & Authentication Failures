@@ -1,0 +1,36 @@
+## 7. Identification & Authentication Failures
+   Overview: Flaws in authentication or session management allow attackers to assume other users identities
+   Impact:
+     Account takeover, privilege escalation, identity theft
+     Loss of confidentiality and integrity of sensitive data
+     High business impact (fraud, reputation loss)
+
+   Attack Vectors & Remediation
+     a. Weak or No Password Policy
+          Vector: Short/easy-to-guess passwords
+          Remediation: Enforce strong password policies (min length, complexity, blacklist common passwords)
+
+     b. Default or Hardcoded Credentials
+          Vector: Using vendor defaults or hardcoded creds in code
+          Remediation: Remove defaults, rotate secrets, use secret managers
+
+     c. Credential Stuffing / Brute Force
+          Vector: Using leaked credentials or automation tools to guess passwords
+          Remediation: Implement MFA, rate limiting, account lockout, bot detection
+
+     d. Poor MFA / 2FA Implementation
+          Vector: Weak SMS OTP, bypassable MFA logic
+          Remediation: Use strong factors (TOTP, push notifications, FIDO2), enforce MFA correctly at all critical flows
+
+     e. Improper Logout / Session Expiry
+          Vector: Sessions remain active indefinitely
+          Remediation: Implement idle timeout, force re-authentication for sensitive actions
+
+     f. Session Hijacking / Fixation
+          Vector: Stealing session cookies via XSS, sniffing, or reusing fixed IDs
+          Remediation: Use secure cookie flags (HttpOnly, Secure, SameSite), regenerate session IDs post-login, use short-lived tokens
+
+Tools / Testing Techniques
+  Burp Suite Intruder → Brute-force login forms
+  OWASP ZAP → Detect cookie flags
+  Session Cookie Tampering → Replay stolen tokens
