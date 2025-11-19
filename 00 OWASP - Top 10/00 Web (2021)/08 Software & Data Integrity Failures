@@ -1,0 +1,32 @@
+## 8. Software & Data Integrity Failures
+   Overview: Weaknesses in code or infrastructure that allow unauthorised modification of software, data or update processes
+   Impact:
+     Attackers can insert malicious code, backdoors or modify data integrity
+     Leads to supplychain attacks and loss of system trust
+     Compromises both end users and internal infrastructure
+
+   Attack Vectors & Remediation
+     a. Untrusted Software Updates
+          Vector: Updating apps from unauthenticated or insecure sources
+          Remediation: Sign all updates digitally; verify signatures before applying
+
+     b. Insecure Deserialisation
+          Vector: Modifying serialised objects to execute arbitrary code
+          Remediation: Avoid native deserialisation of untrusted input; use safe formats (JSON) and validate schema
+
+     c. Malicious CI/CD Pipeline Manipulation
+          Vector: Attacker modifies build scripts or injects malicious dependencies
+          Remediation: Use least privilege in pipelines, integrity checks and separate build/test environments
+
+     d. Unverified Dependencies
+          Vector: Importing tampered third-party packages from public repositories
+          Remediation: Use package integrity verification (checksums, signed manifests)
+
+     e. Unsigned or Tampered Data Files
+          Vector: Altered configuration or firmware files loaded without checks
+          Remediation: Use cryptographic integrity checks (HMAC, SHA-256)
+
+Tools / Testing Techniques
+  Gitleaks / TruffleHog -> Detect leaked secrets in repos
+  Sigstore / Cosign -> Verifies signed software artefacts
+  Burp Suite / ZAP -> Detect deserialization flaws

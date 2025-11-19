@@ -1,0 +1,27 @@
+## 10. Server-Side Request Forgery (SSRF)
+   Overview: When a web app fetches a remote resource based on unvalidated user input, allowing attackers to make server-side requests
+   Impact:
+     Access to internal networks, metadata APIs, or sensitive files
+     Can lead to RCE or data exfiltration
+
+   Attack Vectors & Remediation
+     a. Unvalidated URL Fetch
+          Vector: User-supplied URL in file fetchers, PDF generators, webhooks
+          Remediation: Whitelist safe domains only; block private IP ranges
+
+     b. Open Redirect to SSRF
+          Vector: Redirect parameter abused to pivot internal requests
+          Remediation: Validate redirect targets strictly (absolute URLs only)
+
+     c. Cloud Metadata Access
+          Vector: Access to AWS IMDS (http://169.254.169.254/) for credentials
+          Remediation: Block metadata endpoints via firewall; use IMDSv2 (AWS)
+
+     d. Blind SSRF via DNS
+          Vector: Triggering server-side DNS lookup for exfiltration
+          Remediation: Validate input scheme/host and monitor DNS traffic
+
+Tools / Testing Techniques
+  Burp Collaborator / Interactsh -> detect blind SSRF
+  ffuf / wfuzz -> discover vulnerable parameters
+  curl / requests -> manual SSRF testing

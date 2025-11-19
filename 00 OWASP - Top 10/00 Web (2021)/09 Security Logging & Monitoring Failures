@@ -1,0 +1,31 @@
+## 9. Security Logging & Monitoring Failures
+   Overview: Failure to detect, log or alert on security events thus leaving attacks unnoticed
+   Impact:
+     Attacks go undetected, leading to prolonged breaches
+     Incident response becomes slow or impossible
+     Legal and compliance violations (e.g., PCI-DSS, ISO 27001)
+
+   Attack Vectors & Remediation
+     a. No or Minimal Logging
+          Vector: Missing logs for auth or error events
+          Remediation: Log key security events: logins, access denials, privilege change
+
+     b. Unprotected Logs
+          Vector: Logs exposed to users or writable by attackers
+          Remediation: Restrict permissions, encrypt sensitive logs
+
+     c. No Alerting Mechanism
+          Vector: SIEM not configured lead to breaches unnoticed
+          Remediation: Use SIEM/SOC alerts (Splunk, ELK, Wazuh)
+
+     d. Log Tampering / Deletion
+          Vector: Attackers erase evidence
+          Remediation: Send logs to remote/immutable storage (e.g. CloudWatch, SIEM)
+
+     e. Sensitive Data in Logs
+          Vector: Storing passwords, tokens, PII in logs
+          Remediation: Mask or redact sensitive fields before writing logs
+
+Tools / Testing Techniques
+  Graylog, ELK, Splunk, Wazuh -> log correlation & alerting
+  Sysmon / OSQuery -> host activity tracking
